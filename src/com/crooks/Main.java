@@ -31,9 +31,15 @@ public class Main {
                     //Toggle items state
                     System.out.println("Enter Item number to toggle:\n");
                     String numStr = scanner.nextLine();
-                    int num = Integer.valueOf(numStr);
-                    ToDoItem tempItem = items.get(num-1);
-                    tempItem.isDone = !tempItem.isDone;
+                    try {
+                        int num = Integer.valueOf(numStr);
+                        ToDoItem tempItem = items.get(num - 1);
+                        tempItem.isDone = !tempItem.isDone;
+                    }catch (NumberFormatException e){
+                        System.out.println("You must use a number!\n");
+                    }catch (ArrayIndexOutOfBoundsException e){
+                        System.out.println("The number you selected isn't valid.\n");
+                    }
 
 
                     break;
